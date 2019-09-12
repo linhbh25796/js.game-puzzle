@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="images/cat1.jpg" id="image1" name="cat1" onclick="clickImage(1)"/>
+<span id="checked"></span> <br>
+<img src="images/monkey2.jpg" id="image2" name="monkey2" onclick="clickImage(2)"/> <br>
+<img src="images/cat3.jpg" id="image3" name="cat3" onclick="clickImage(3)"/> <br>
+<img src="images/cat4.jpg" id="image4" name="cat4" onclick="clickImage(4)"/> <br>
+<img src="images/monkey5.jpg" id="image5" name="monkey5" onclick="clickImage(5)"/> <br>
+<script>
+    function clickImage(index) {
+        let cat = "cat" + index;
+        let monkey = "monkey" + index;
+        let img = document.getElementById("image" + index);
+        switch (img.name) {
+            case cat:
+                img.name = monkey;
+                break;
+            case monkey:
+                img.name = cat;
+                break;
+
+        }
+        document.getElementById("image" + index).src = "images/" + img.name + ".jpg"
+        let nameImage1 = document.getElementById('image1').name;
+        let nameImage2 = document.getElementById('image2').name;
+        let nameImage3 = document.getElementById('image3').name;
+        let nameImage4 = document.getElementById('image4').name;
+        let nameImage5 = document.getElementById('image5').name;
+        if ((nameImage1 == 'cat1' && nameImage2 == 'cat2' && nameImage3 == 'cat3' && nameImage4 == 'cat4' && nameImage5 == 'cat5') ||
+            (nameImage1 == 'monkey1' && nameImage2 == 'monkey2' && nameImage3 == 'monkey3' && nameImage4 == 'monkey4' && nameImage5 == 'monkey5')
+        ) {
+            document.getElementById('checked').innerHTML = 'Ok';
+        } else {
+            document.getElementById('checked').innerHTML = '';
+        }
+    }
+
+</script>
+</body>
+</html>
